@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'screens/screens.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -8,35 +8,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      //Quitamos el debug
+      //home: BotonFlotante(),
+      debugShowCheckedModeBanner: false,
+      //Configurar el tema
+      initialRoute: "/list",
+      routes: {"/list": (BuildContext context) => List()},
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+          primarySwatch: Colors.green,
+          accentColor: Colors.amber,
+          //configurar texto
+          textTheme:
+              TextTheme(bodyText2: TextStyle(color: Colors.red, fontSize: 20))),
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      // Pagina Inicial
     );
   }
 }
